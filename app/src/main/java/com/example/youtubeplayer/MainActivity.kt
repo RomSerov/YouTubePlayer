@@ -16,6 +16,14 @@ import com.example.youtubeplayer.ui.theme.YouTubePlayerTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val videos = listOf(
+            "squtTxG0nCg",
+            "zNI1SXzDKko",
+            "LK86rn3viww",
+            "DlZ4Fvh_Qy4",
+            "tJ-F031lG_I"
+        )
         setContent {
             YouTubePlayerTheme {
                 // A surface container using the 'background' color from the theme
@@ -23,10 +31,14 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    YoutubePlayer(
-                        youtubeVideoId = "squtTxG0nCg",
-                        lifecycleOwner = LocalLifecycleOwner.current
-                    )
+                    CubePager(
+                        pageCount = videos.size - 1
+                    ) {
+                        YoutubePlayer(
+                            youtubeVideoId = videos[it],
+                            lifecycleOwner = LocalLifecycleOwner.current
+                        )
+                    }
                 }
             }
         }
