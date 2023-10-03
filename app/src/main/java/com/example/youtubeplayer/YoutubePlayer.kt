@@ -31,15 +31,15 @@ fun YoutubePlayer(
             val iFramePlayerOptions = IFramePlayerOptions.Builder()
                 .controls(0)
                 .rel(0)
-                .ivLoadPolicy(1)
-                .ccLoadPolicy(1)
+                .ivLoadPolicy(3)
+                .ccLoadPolicy(0)
+                .fullscreen(0)
                 .build()
 
             YouTubePlayerView(context = context).apply {
-                this.layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+                layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
                 lifecycleOwner.lifecycle.addObserver(this)
-
-                this.enableAutomaticInitialization = false
+                enableAutomaticInitialization = false
 
                 initialize(
                     youTubePlayerListener = object : AbstractYouTubePlayerListener() {

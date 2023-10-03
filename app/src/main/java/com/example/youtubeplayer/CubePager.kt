@@ -62,7 +62,7 @@ fun CubePager(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.Green)
+            .background(Color.Black)
             .fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
